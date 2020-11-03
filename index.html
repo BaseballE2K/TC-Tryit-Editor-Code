@@ -1,0 +1,80 @@
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Try it yourself editor</title>
+		<style type="text/css">
+			textarea, iframe {
+    			border: 2px solid #ddd;
+    			height: 500px;
+    			width: 100%;	  
+			}
+    	</style>
+	<style type="text/css"></style></head>
+    <body style="">
+        <table width="100%" border="0" cellspacing="5" cellpadding="5">
+            <tbody><tr>
+                <td width="50%" scope="col">&nbsp;</td>
+                <td width="50%" align="left" scope="col">
+                    <input class="button button2" onclick="runCode();" type="button" value="Run Code">
+                </td>
+            </tr>
+            <tr>
+                <td> 
+                    <form>
+                        <strong>Code</strong>
+                        <textarea name="sourceCode" id="sourceCode">&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Hello&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Hello!&lt;/h1&gt;
+&lt;p&gt;Write HTML, CSS or JavaScript code here and click 'Run Code'.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </textarea>
+                    </form>
+                </td>
+                <td><strong>Output</strong><iframe name="targetCode" id="targetCode"></iframe></td>
+            </tr>
+        </tbody></table>  
+        <script type="text/javascript">
+            function runCode()
+            {
+                var content = document.getElementById('sourceCode').value;
+                var iframe = document.getElementById('targetCode');
+                iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+                iframe.document.open();
+                iframe.document.write(content);
+                iframe.document.close();
+                return false;
+            }
+            runCode();
+        </script>
+        <style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+</style>
+    
+
+</body>
+</html>
